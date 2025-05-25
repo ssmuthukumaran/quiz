@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+    <title>Question</title>
+</head>
+<body>
+    <h1>{{ question['question'] }}</h1>
+    <form action="{{ url_for('answer') }}" method="post">
+        {% for option in options %}
+            <input type="radio" name="selected_option" value="{{ option['wr_question'] }}" required>
+            {{ option['wr_ans'] }}<br>
+        {% endfor %}
+        <input type="hidden" name="question_id" value="{{ question['id'] }}">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

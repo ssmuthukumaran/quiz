@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+    <title>Quiz</title>
+</head>
+<body>
+    <h1>Answer the Question</h1>
+    <form action="{{ url_for('answer') }}" method="post">
+        <p>{{ questions[current_question]['question_text'] }}</p>
+        {% for option in options %}
+            <input type="radio" name="selected_option" value="{{ option['wr_question'] }}" required>
+            {{ option['wr_question'] }}<br>
+        {% endfor %}
+        <input type="hidden" name="question_id" value="{{ questions[current_question]['id'] }}">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

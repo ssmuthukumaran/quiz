@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<head>
+    <title>Quiz Categories</title>
+</head>
+<body>
+    <h1>Select a Subject</h1>
+    {% for category in categories %}
+        <form action="{{ url_for('quiz', subject_id=category['id']) }}" method="get">
+            <button type="submit">{{ category['name'] }}</button>
+        </form>
+    {% endfor %}
+</body>
+</html>
